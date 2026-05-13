@@ -1,10 +1,63 @@
 # Python-generated files
 __pycache__/
-*.py[oc]
+*.py[cod]
+*$py.class
+*.so
+
+# Packaging/build output
 build/
 dist/
 wheels/
-*.egg-info
+*.egg-info/
+*.egg
+pip-wheel-metadata/
 
 # Virtual environments
-.venv
+.venv/
+venv/
+env/
+ENV/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Logs and runtime files
+*.log
+logs/
+.cache/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# IDE/editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Generated media, transcripts, and summaries
+downloads/
+uploads/
+outputs/
+tmp/
+temp/
+*.mp4
+*.mov
+*.mkv
+*.avi
+*.webm
+*.mp3
+*.wav
+*.m4a
+*.aac
+*.flac
+*.srt
+*.vtt
+*.transcript.*
+*.summary.*

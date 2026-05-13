@@ -1,0 +1,20 @@
+openai>=1.99.0
+python-dotenv>=1.0.1
+pydantic>=2.8.2
+
+# Video/audio ingestion and conversion.
+yt-dlp>=2025.1.15
+ffmpeg-python>=0.2.0
+moviepy>=1.0.3
+
+# Transcription. Uses local Whisper models through faster-whisper.
+faster-whisper>=1.0.3
+
+# API/UI layer options for uploading videos and submitting URLs.
+fastapi>=0.115.0
+uvicorn[standard]>=0.30.6
+python-multipart>=0.0.9
+
+# Helpful text processing for notes/summaries.
+tiktoken>=0.7.0
+rich>=13.8.0
