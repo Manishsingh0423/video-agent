@@ -1,6 +1,7 @@
 import yt_dlp
 import os
 import shutil
+from pydub import AudioSegment
 
 Download_DIR = "./downloads"
 os.makedirs(Download_DIR, exist_ok=True)
@@ -43,7 +44,24 @@ def convert_to_wav(input_file: str) -> str:
     audio.export(output_file, format="wav")
     return output_file
 
+def chunks_audio(wav_path:str, chunk_lenght_minutes: int = 10)-> list:
+
+
+    audio = AudioSegment.from_wav(wav_path)
+    chunk_length_ms = chunk_lenght_minutes * 60 * 1000
+    chunks = []
+    for i, start in enumerate(range(0, len(audio), chunk_length_ms)):
+        chunk = audio[start: start + chunk_length_ms]
+        chunk_path = f"{wav_path}_chunk_{i}.wav"
+        chunk.export(chunk_path, format="wav")
+        chunks.append(chunk_path)
+    return chunks 
+
+
+
+
 
 if __name__ == "__main__":
-    data = download_youtube_audio("https://www.youtube.com/watch?v=IVGjBxqygmI")
-    print(convert_to_wav(data))
+    data = download_youtube_audio("https://www.youtube.com/watch?v=mtiOK2QG9Q0")
+    data_final = convert_to_wav(data)
+    print(chunks_audio(data_final))
